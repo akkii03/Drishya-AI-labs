@@ -7,18 +7,8 @@ const display = document.getElementById('sum');
 let sum = 0;
 
 
-// calculate sum
-function calculateSum () {
-    for(let i=0;i<tableData.length;i++) {
-        console.log(tableData.length);
-        sum += parseInt(tableData[i].innerText);
-    }
-    return sum;
-}
 
-// display sum
-calculateSum();
-display.append(sum);
+
 
 
 // add column logic 
@@ -32,8 +22,13 @@ addBtn.addEventListener('click',()=>{
     const mainTable = document.getElementById("tableBody");
     mainTable.append(tr);
     display.innerText = "";
-    calculateSum();
+    const td = document.querySelectorAll("td");
+    let sum = 0;
+    for(let i=0;i<td.length;i++) {
+        sum += parseInt(td[i].innerText);
+    }
     display.append(sum);
+    
 });
 
 //delete column logic
